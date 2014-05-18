@@ -1,0 +1,73 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title Advanced NodejsTemplate
+        // CSS content
+        link(rel='stylesheet', href='/css/basic.css')
+        link(rel='stylesheet', href='/css/bootstrap.min.css')
+        // JS content is right before closing body tag
+    body
+        // All page content is wrapped in here
+        div#wrap
+            // Header
+            div.navbar.navbar-default.navbar-fixed-top
+                div.container
+                    div.navbar-header
+                        button(class='navbar-toggle', type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                        a(class='navbar-brand', href='#') Node.js Template Site
+                    div.collapse.navbar-collapse
+                        ul.nav.navbar-nav
+                            li.active
+                                a(href='#') Home
+                            li
+                                a(href='#about') About
+                            li
+                                a(href='#contact') Contact
+                                
+            // Main content
+            div.container
+                div.page-header
+                    h1 Welcome to the template.
+                p.lead This is a lead:
+                //div#inputarea.row
+                div#examples
+                    form(role='form' id='addExample')
+                        div.form-group
+                            label(for='example-input-name') Example name input
+                            input(type='text' class='form-control' id='name' placeholder='Enter Name')
+                        div.form-group
+                            label(for='example-input-mail') Example mail input
+                            input(type='mail' class='form-control' id='mail' placeholder='Enter Mail')
+                        button(type='submit' class='btn btn-default' id="add") Add Entry
+
+                //p.lead#contentLead Here land the examples:
+                    //div#examples
+
+        // Footer
+        div#footer
+            div.container
+                p.text-muted.credit Page made by me, <a href="http://twitter.com/authorname/">@authorname</a>.
+        
+        // Template scripts
+        script(id='exampleTemplate' type='text/template')
+            ul
+                li <%= name %>
+                li <%= mail %>
+            button(class='delete') Delete
+        
+        // Bootstrap core JavaScript, placed here for faster page load
+        script(type='text/javascript' src='/js/libraries/jquery-2.0.3.min.js')
+        script(type='text/javascript' src='/js/libraries/bootstrap.min.js')
+        script(type='text/javascript' src='/js/libraries/underscore-min.js')
+        script(type='text/javascript' src='/js/libraries/backbone-min.js')
+        
+        script(type='text/javascript' src='/js/models/example.js')
+        script(type='text/javascript' src='/js/collections/examples.js')
+        script(type='text/javascript' src='/js/views/example.js')
+        script(type='text/javascript' src='/js/views/examples.js')
+        script(type='text/javascript' src='/js/app.js')

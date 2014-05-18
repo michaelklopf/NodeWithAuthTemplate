@@ -1,0 +1,231 @@
+# console commands
+# Copy file to server
+scp hello.txt sehost1:~/
+
+# Copy file from server to local machine
+scp sehost1:~/foo.txt .
+
+# Create bash script
+touch simple.sh
+vim simple.sh
+
+# add content, save
+ls -alrth simple.sh
+# output
+-rw-rw-r-- 1 ubuntu ubuntu 44 Jun 26 19:55 simple.sh
+
+# change rights
+chmod 777 simple.sh
+ls -alrth simple.sh
+#output
+-rwxrwxrwx 1 ubuntu ubuntu 44 Jun 26 19:55 simple.sh
+./simple.sh
+
+# screen (terminal app) shortcuts - Man muss wohl nicht den Finger von ctrl nehmen, wenn man aktionen durchführt
+Hilfe: ctrl+T ?
+Tab wechseln rechts: ctrl+T ctrl+J
+Tab wechslen links: ctrl+T ctrl+U
+Neuer Tab: ctrl+T ctrl+C
+Hin und her: ctrl+T ctrl+T
+Schließe Tab: ctrl+D
+
+#emacs
+Move forward a page: C-v
+Move backwards a page: M-v
+Launch: emacs -nw -Q
+End emacs session: C-x C-c
+Move around: C-f C-b C-p C-n
+Beginning/End of line: C-a C-e
+Beginning/End of Sentence: M-a M-e
+Cut and paste: C-k C-y
+Do something multiple times: C-u <numOfTimes> <command>
+Mark text: C-<space> move around
+Delete to end of line: C-k
+Abort any command: C-g
+Undo: C-x u
+Before save, find a file: C-x C-f
+Save file: C-x C-s
+Change back to other file with: C-x C-f
+List buffer contend: C-x C-b
+Get rid of buffer list: C-x 1
+Go back to certain file: C-x b <filename>
+Suspend emacs: C-z
+Start again with: fg flag or %emacs
+Start REPL: C-c !
+Change between buffers: M-i
+Go to line and execute code: C-c C-j
+Mark lines and execute code: C-<space> C-c C-r
+When delete is fucked up: M-x normal-erase-is-backspace-mode
+
+#fill file with info
+echo -e "line1\nline2" > file.txt
+echo -e "line3" >> file.txt
+
+#git
+create repo: git init
+add file: git add file.txt
+commit file: git commit -m "Added first file"
+diff of file: git diff file.txt
+diff with color: git diff --color file.txt
+log with more info: git log -p
+#worked... strangely
+git remote add origin git@github.com:michaelklopf/myrepo.git
+git push -u origin master
+
+#github
+git remote add github git@github.com:michaelklopf/myrepo.git
+git push -u github master
+#now error appeared - check that info again
+
+#github remote
+git remote -v
+git remote rm destination
+#change location
+git remote set-url origin "https://..."
+git remote set-url heroku git@heroku.com:githubaccname-bitstarter-mooc.git
+
+# ändern
+emacs -nw web.js
+git add web.js; git commit -m "Updated web.js"
+heroku create
+git push heroku master
+
+#hinzufügen
+touch index.html
+emacs -nw index.html
+git add index.html
+git commit -m "Added index.html"
+
+#push zu github
+git push origin master
+
+#branches
+# create new branch
+git checkout -b develop
+git checkout -b staging
+# check branches
+git branch
+# track remote changes
+git push -u origin develop
+git push -u origin staging
+
+# WORKFLOW
+# change to dev branch
+git checkout develop
+# do changes
+# commit changes
+git commit -a -m "Edited FAQ in index.html"
+
+# go into staging
+git checkout staging
+# merge commits into staging
+git merge develop
+# push to staging app
+git push staging-heroku staging:master
+
+# to fix staging errors, go back to develop branch
+git checkout develop
+# fix code and commit changes
+git commit -a -m "Fixed staging bugs in develop branch."
+# push develop to github
+git push origin develop
+
+# back to staging
+git checkout staging
+# merge changes
+git merge develop
+# push staging commits to github
+git push origin staging
+# push to heroku
+git push staging-heroku staging:master
+
+# now check out to production/master
+git checkout master
+# merge staging changes to master
+git merge staging
+# push to heroku
+git push production-heroku master:master
+
+# then develop more
+git checkout develop
+
+# after installing postgresql with brew do
+initdb /usr/local/var/postgres
+# and then
+pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+
+# postgresql db start
+# create db
+createdb Michael;
+# add role postgresql
+create role postgresql;
+# delete data base
+dropdb Michael;
+drop database Michael;
+# show something
+# show tables
+\d
+# show databases
+\l
+# show columns
+\d table
+# describe table
+\d+ table
+# show roles
+select rolname from pg_roles;
+# switch db
+\connect DBNAME
+# change role
+postgres=# alter role youruser LOGIN;
+
+# in normal Terminal
+createuser -E -P -s ubuntu
+createdb -O ubuntu bitdb0
+
+# in psql
+alter database postgres owner to ubuntu;
+
+# send config (.env) to staging
+heroku config:push --app githubaccname-bitstarter-s-mooc
+
+# package.json
+# create skeleton package.json
+npm init
+
+# install dependencies, call where package.json lies
+npm install
+
+# install grunt and mark it in package.json under dev dependencies
+npm install grunt --save-dev
+
+# install module and mark it in package.json under dependencies
+npm install <module> --save
+
+# install bower
+npm install bower --save-dev # does not work
+sudo npm install -g bower
+
+# after that add path to bashrc for call
+source ~/.bashrc
+
+# called to refresh file for terminal
+# search for libraries in bower
+bower search bootstrap
+
+# install package with bower
+bower install bootstrap
+
+# update package
+bower update bootstrap
+
+# for updating to the latest kill the old ones
+bower cache-clean
+
+# tagging releases
+# create a commented tag
+git tag -a v1.0 -m 'Version 1.0 of template'
+
+git push origin v1.0
+
+# start mongodb
+mongod --dbpath ~/Dev/mongodbs
