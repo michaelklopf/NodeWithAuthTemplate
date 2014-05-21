@@ -28,6 +28,7 @@ app.configure(function() {
 
     app.use("/css" , express.static(__dirname + '/static/css'));
     app.use("/js" , express.static(__dirname + '/static/js'));
+    app.use("/fonts", express.static(__dirname + '/static/fonts'));
 
     app.set('views', __dirname + '/app/views');
     app.engine('jade', require('jade').__express);

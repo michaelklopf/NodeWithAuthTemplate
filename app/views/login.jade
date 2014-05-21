@@ -3,10 +3,11 @@ html(lang="en")
     head
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        title Advanced NodejsTemplate
+        title Auth with Passport
         // CSS content
         link(rel='stylesheet', href='/css/basic.css')
         link(rel='stylesheet', href='/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/css/font-awesome.min.css')
         // JS content is right before closing body tag
     body
         // All page content is wrapped in here
@@ -36,9 +37,26 @@ html(lang="en")
             // Main content
             div.container
                 div.page-header
-                    h1 Home page.
-                      if (message.length > 0)
-                        div.alert.alert-danger #{message}
+                    h1.span.fa.fa-sign-in Login
+
+                    //if (message.length > 0)
+                      //div.alert.alert-danger #{message}
+
+                    form(action="/login" method="post")
+                      div.form-group
+                        label Email
+                        input(type="text" class="form-control" name="email")
+
+                      div.form-group
+                        label Password
+                        input(type="password" class="form-control" name="password")
+
+                    button(type="submit" class="btn btn-warning btn-lg") Login
+
+                    hr
+
+                    p Need an account? <a href="/signup">Signup</a>
+                    p Or go <a href="/">home.</a>
 
         // Footer
         div#footer
@@ -49,11 +67,3 @@ html(lang="en")
         // Bootstrap core JavaScript, placed here for faster page load
         script(type='text/javascript' src='/js/libraries/jquery-2.0.3.min.js')
         script(type='text/javascript' src='/js/libraries/bootstrap.min.js')
-        script(type='text/javascript' src='/js/libraries/underscore-min.js')
-        script(type='text/javascript' src='/js/libraries/backbone-min.js')
-
-        script(type='text/javascript' src='/js/models/example.js')
-        script(type='text/javascript' src='/js/collections/examples.js')
-        script(type='text/javascript' src='/js/views/example.js')
-        script(type='text/javascript' src='/js/views/examples.js')
-        script(type='text/javascript' src='/js/app.js')

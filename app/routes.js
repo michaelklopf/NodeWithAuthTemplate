@@ -6,20 +6,18 @@ module.exports = function(app, passport) {
 
     // application routes
     app.get('/', function(req, res) {
-        //var data = jade.renderFile('./static/index.jade');
-        res.contentType('text/html');
-        //res.send(200, data);
-        res.render('index');
+      res.contentType('text/html');
+      res.render('index');
     });
 
     app.get('/login', function(req, res) {
       res.contentType('text/html');
-      res.render('login', {message : req.flash('loginMessage')});
+      res.render('login'/*, {message : req.flash('loginMessage')}*/);
     });
 
-    app.get('signup', function(req, res) {
+    app.get('/signup', function(req, res) {
       res.contentType('text/html');
-      res.render('signup', {message : req.flash('signupMessage')});
+      res.render('signup'/*, {message : req.flash('signupMessage')}*/);
     });
 
     app.get('/profile', isLoggedIn, function(req, res) {
