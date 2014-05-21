@@ -7,6 +7,7 @@ var stylus      = require('stylus');
 var mongoose    = require('mongoose');
 var passport    = require('passport');
 var localauth   = require('passport-local');
+var flash       = require('connect-flash');
 
 // load config and create database
 var database    = require('./config/database');
@@ -36,6 +37,8 @@ app.configure(function() {
     app.use(express.session({secret : 'example secret'}));
     app.use(passport.initialize());
     app.use(passport.session());
+
+    app.use(flash());
 });
 
 // load routes

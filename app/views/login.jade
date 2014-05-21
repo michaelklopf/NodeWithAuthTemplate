@@ -37,6 +37,8 @@ html(lang="en")
             div.container
                 div.page-header
                     h1 Home page.
+                      if (message.length > 0)
+                        div.alert.alert-danger #{message}
 
         // Footer
         div#footer

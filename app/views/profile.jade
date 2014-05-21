@@ -36,13 +36,45 @@ html(lang="en")
             // Main content
             div.container
                 div.page-header
-                    h1 Home page.
+                    h1 Welcome to the template.
+                p.lead This is a lead:
+                //div#inputarea.row
+                div#examples
+                    form(role='form' id='addExample')
+                        div.form-group
+                            label(for='example-input-name') Example name input
+                            input(
+                              type='text'
+                              class='form-control'
+                              id='name'
+                              placeholder='Enter Name'
+                            )
+                        div.form-group
+                            label(for='example-input-mail') Example mail input
+                            input(
+                              type='mail'
+                              class='form-control'
+                              id='mail'
+                              placeholder='Enter Mail'
+                            )
+                        button(
+                          type='submit'
+                          class='btn btn-default'
+                          id="add"
+                        ) Add Entry
 
         // Footer
         div#footer
             div.container
                 p.text-muted.credit Page made by me,
                   <a href="http://twitter.com/authorname/">@authorname</a>.
+
+        // Template scripts
+        script(id='exampleTemplate' type='text/template')
+            ul
+                li <%= name %>
+                li <%= mail %>
+            button(class='delete') Delete
 
         // Bootstrap core JavaScript, placed here for faster page load
         script(type='text/javascript' src='/js/libraries/jquery-2.0.3.min.js')
