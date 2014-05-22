@@ -27,12 +27,12 @@ html(lang="en")
                         a(class='navbar-brand', href='#') Node Auth
                     div.collapse.navbar-collapse
                         ul.nav.navbar-nav
+                            li
+                                a(href='/') Home
                             li.active
-                                a(href='#') Home
+                                a(href='/profile') My Profile
                             li
-                                a(href='#about') About
-                            li
-                                a(href='#contact') Contact
+                              a(href='/logout') Logout
 
             // Main content
             div.container
@@ -87,4 +87,4 @@ html(lang="en")
         script(type='text/javascript' src='/js/collections/examples.js')
         script(type='text/javascript' src='/js/views/example.js')
         script(type='text/javascript' src='/js/views/examples.js')
-        script(type='text/javascript' src='/js/app.js')
+        script(type='text/javascript' src='/js/profile.js')

@@ -6,24 +6,23 @@ var http        = require('http');
 var stylus      = require('stylus');
 var mongoose    = require('mongoose');
 var passport    = require('passport');
-var localauth   = require('passport-local');
 var flash       = require('connect-flash');
 
 // load config and create database
 var database    = require('./config/database');
 mongoose.connect(database.url);
 
-// require('./config/passport.js')(passport);
+require('./config/passport.js')(passport);
 
 // create and configure express app
 var app = express();
 
 app.configure(function() {
-    app.use(express.cookieParser());
+    app.use(express.cookieParser('secretpassauth'));
     app.use(express.bodyParser());
+    app.use(express.session({ key: 'session', cookie: { maxAge: 60000 }}));
 	  app.use(express.methodOverride());
 
-    app.use(app.router);
     app.use(stylus.middleware(__dirname + '/static'));
 
     app.use("/css" , express.static(__dirname + '/static/css'));
@@ -35,11 +34,11 @@ app.configure(function() {
     app.set('view engine', 'jade');
     app.set('port', process.env.PORT || 8080);
 
-    app.use(express.session({secret : 'example secret'}));
     app.use(passport.initialize());
     app.use(passport.session());
 
     app.use(flash());
+    app.use(app.router);
 });
 
 // load routes

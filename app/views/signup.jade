@@ -27,20 +27,18 @@ html(lang="en")
                         a(class='navbar-brand', href='#') Node Auth
                     div.collapse.navbar-collapse
                         ul.nav.navbar-nav
-                            li.active
-                                a(href='#') Home
                             li
-                                a(href='#about') About
+                                a(href='/') Home
                             li
-                                a(href='#contact') Contact
+                              a(href='/login') Login
 
             // Main content
             div.container
                 div.page-header
                     h1.span.fa.fa-sign-in Signup
 
-                    //if (message.length > 0)
-                      //div.alert.alert-danger #{message}
+                    if message > 0
+                      div.alert.alert-danger #{message}
 
                     form(action="/signup" method="post")
                       div.form-group
@@ -51,7 +49,7 @@ html(lang="en")
                         label Password
                         input(type="password" class="form-control" name="password")
 
-                    button(type="submit" class="btn btn-warning btn-lg") Signup
+                      button(type="submit" class="btn btn-warning btn-lg") Signup
 
                     hr
 

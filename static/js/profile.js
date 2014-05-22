@@ -1,4 +1,4 @@
-// static/js/app.js
+// static/js/profile.js
 
 var app = app || {};
 
