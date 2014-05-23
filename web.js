@@ -19,7 +19,9 @@ var app = express();
 
 app.configure(function() {
     app.use(express.cookieParser('secretpassauth'));
-    app.use(express.bodyParser());
+    //app.use(express.bodyParser()); // get rid of dep messages with following two lines
+    app.use(express.json());
+    app.use(express.urlencoded());
     app.use(express.session({ key: 'session', cookie: { maxAge: 60000 }}));
 	  app.use(express.methodOverride());
 
