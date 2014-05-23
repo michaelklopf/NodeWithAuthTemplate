@@ -229,3 +229,9 @@ git push origin v1.0
 
 # start mongodb
 mongod --dbpath ~/Dev/mongodbs
+
+# transform jade to html
+# first install jade globally
+npm install jade --global
+
+jade --pretty index.jade

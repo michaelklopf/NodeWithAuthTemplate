@@ -30,8 +30,8 @@ app.configure(function() {
     app.use("/fonts", express.static(__dirname + '/static/fonts'));
 
     app.set('views', __dirname + '/app/views');
-    app.engine('jade', require('jade').__express);
-    app.set('view engine', 'jade');
+    //app.engine('jade', require('jade').__express);
+    app.set('view engine', 'ejs');
     app.set('port', process.env.PORT || 8080);
 
     app.use(passport.initialize());
