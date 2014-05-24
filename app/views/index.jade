@@ -30,9 +30,17 @@ html(lang="en")
                             li.active
                                 a(href='/') Home
                             li
-                              a(href='/login') Login
+                              if user
+                                a(href='/profile') My Profile
                             li
-                              a(href='/signup') Signup
+                              if !user
+                                a(href='/login') Login
+                            li
+                              if !user
+                                a(href='/signup') Signup
+                            li
+                              if user
+                                a(href='/logout') Logout
 
             // Main content
             div.container

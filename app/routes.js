@@ -7,7 +7,7 @@ module.exports = function(app, passport) {
     // application routes
     app.get('/', function(req, res) {
       res.contentType('text/html');
-      res.render('index');
+      res.render('index', {user : req.user});
     });
 
     app.get('/login', function(req, res) {

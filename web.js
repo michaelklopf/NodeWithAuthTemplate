@@ -32,8 +32,8 @@ app.configure(function() {
     app.use("/fonts", express.static(__dirname + '/static/fonts'));
 
     app.set('views', __dirname + '/app/views');
-    //app.engine('jade', require('jade').__express);
-    app.set('view engine', 'ejs');  // revert to jade with replacing ejs -> jade and uncomment above line
+    app.engine('jade', require('jade').__express);
+    app.set('view engine', 'jade');  // revert to ejs with replacing jade -> ejs and comment the above line
     app.set('port', process.env.PORT || 8080);
 
     app.use(passport.initialize());
