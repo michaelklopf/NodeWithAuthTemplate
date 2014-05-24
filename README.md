@@ -1,4 +1,5 @@
-Advanced Node.js template for starting a node webproject faster.
+Node.js template to get cracking faster with a new project. This version is extending the efforts before with integration of passport for auth.
+
 Overview
 ===
 The template makes use of the following technologies:
@@ -9,9 +10,9 @@ mongoose - modeling application data with MongoDB http://mongoosejs.com
 
 jade - template engine, easier and more convenient than writing html http://jade-lang.com
 
-stylus - for dynamic and faster writing of CSS http://learnboost.github.io/stylus/
+ejs - template engine, implemented it to test something, is not further maintained here http://embeddedjs.com
 
-grunt - for automation tasks revolving around npm and node (back-end side of things) http://gruntjs.com
+stylus - for dynamic and faster writing of CSS http://learnboost.github.io/stylus/
 
 bower - not really part of the template per se, as I copied my content from an old project, but I will try updating this part. It automates management of front-end packages like jQuery or Bootstrap http://bower.io
 
@@ -19,12 +20,12 @@ Bootstrap - front-end framework for easier and faster web development. Comes wit
 
 Backbone - front-end JavaScript framework. Helps to structure code in models and views. The latter includes the controller functionality of the MVC pattern.
 
-restler - Library to consume other web APIs. https://github.com/danwrong/restler
+restler - Library to consume other web APIs. Not used here either. https://github.com/danwrong/restler
 
 passport - Authentification library. http://passportjs.org/
-Tutorial: http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local
 
-About testing:
+About Testing
+===
 Jasmine - Testing framework (not yet implemented) description here http://blog.codeship.io/2013/08/20/testing-tuesday-19-how-to-test-node-js-applications-with-jasmine.html
 
 http://thewayofcode.wordpress.com/2013/04/21/how-to-build-and-test-rest-api-with-nodejs-express-mocha/
@@ -42,22 +43,24 @@ Getting started
 The book on which I based the Backbone structure
 http://addyosmani.github.io/backbone-fundamentals
 
+The passport integration was done with the help of this tutorial http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local
+
 Set-Up
 ===
 As with the starter template we set up node and load the necessary modules.
 
 For our data, we use MongoDB in this template. Other database types are possible too, but need to be configured differently, for this please look into the documentation. My bitstarter repository is based on PostgreSQL and you can take clues from there, but the setup is complexer, hence why I decided to use MongoDB here.
 
-Install MongoDB
+Install MongoDB  
 ```brew install mongodb```
 
-Run MongoDB in its own Terminal tab with
+Run MongoDB in its own Terminal tab with  
 ```mongod ```
 
-If this does not work, make a folder where the database should reside, and execute the command
+If this does not work, make a folder where the database should reside, and execute the command  
 ```mongod --dbpath ~/your/mongodbs/```
 
-After that you can start the web application with
+After that you can start the web application with  
 ```node web.js```
 
 What happens here
@@ -72,6 +75,8 @@ examples.js is the name of the collection, which holds all the example.js object
 
 To do
 ===
-The next step is to make use of MarionetteJS and discover more Backbone features. On the backend side, we need to structure the routes better, to prevent the routes.js from growing too large.
+The next step is to make use of MarionetteJS and discover more Backbone features.
 
-Before that we add passport for authentification. I'm also trying to add Jasmin for testing.
+On the backend side, we need to structure the routes better, to prevent the routes.js from growing too large.
+
+I'm trying to add Jasmin for testing.
