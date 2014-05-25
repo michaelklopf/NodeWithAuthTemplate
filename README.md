@@ -4,46 +4,61 @@ Overview
 ===
 The template makes use of the following technologies:
 
-express - web application framework for nod http://expressjs.com
+express - web application framework for nodejs  
+http://expressjs.com
 
-mongoose - modeling application data with MongoDB http://mongoosejs.com
+mongoose - modeling application data with MongoDB  
+http://mongoosejs.com
 
-jade - template engine, easier and more convenient than writing html http://jade-lang.com
+jade - template engine, easier and more convenient than writing html  
+http://jade-lang.com
 
-ejs - template engine, implemented it to test something, is not further maintained here http://embeddedjs.com
+ejs - template engine, implemented it to test something, is not further maintained here  
+http://embeddedjs.com
 
-stylus - for dynamic and faster writing of CSS http://learnboost.github.io/stylus/
+stylus - for dynamic and faster writing of CSS  
+http://learnboost.github.io/stylus/
 
-bower - not really part of the template per se, as I copied my content from an old project, but I will try updating this part. It automates management of front-end packages like jQuery or Bootstrap http://bower.io
+bower - not really part of the template per se, as I copied my content from an old project, but I will try updating this part. It automates management of front-end packages like jQuery or Bootstrap  
+http://bower.io
 
-Bootstrap - front-end framework for easier and faster web development. Comes with a lot of web site elements, already styled, like buttons or sliders. Responsiveness is an elemental feature http://getbootstrap.com
+Bootstrap - front-end framework for easier and faster web development. Comes with a lot of web site elements, already styled, like buttons or sliders. Responsiveness is an elemental feature  
+http://getbootstrap.com
 
-Backbone - front-end JavaScript framework. Helps to structure code in models and views. The latter includes the controller functionality of the MVC pattern.
+Backbone - front-end JavaScript framework. Helps to structure code in models and views. The latter includes the controller functionality of the MVC pattern.  
+http://backbonejs.org
 
-restler - Library to consume other web APIs. Not used here either. https://github.com/danwrong/restler
+restler - Library to consume other web APIs. Not used here either.  
+https://github.com/danwrong/restler
 
-passport - Authentification library. http://passportjs.org/
+passport - Authentification library.  
+http://passportjs.org/
 
 About Testing
 ===
-Jasmine - Testing framework (not yet implemented) description here http://blog.codeship.io/2013/08/20/testing-tuesday-19-how-to-test-node-js-applications-with-jasmine.html
+Jasmine - Testing framework (not yet implemented) description here  
+http://blog.codeship.io/2013/08/20/testing-tuesday-19-how-to-test-node-js-applications-with-jasmine.html
 
 http://thewayofcode.wordpress.com/2013/04/21/how-to-build-and-test-rest-api-with-nodejs-express-mocha/
 
 Background
 ===
-You will find an article describing how to use module.exports here http://openmymind.net/2012/2/3/Node-Require-and-Exports/
+You will find an article describing how to use module.exports here  
+http://openmymind.net/2012/2/3/Node-Require-and-Exports/
 
-I took the main structure of this app from here http://scotch.io/tutorials/javascript/node-and-angular-to-do-app-application-organization-and-structure
+I took the main structure of this app from here  
+http://scotch.io/tutorials/javascript/node-and-angular-to-do-app-application-organization-and-structure
 
-A nice tutorial for MongoDB, in relation to express and mongoose
+A nice tutorial for MongoDB, in relation to express and mongoose  
 http://theholmesoffice.com/node-js-express-and-mongoose/
-Getting started
 
-The book on which I based the Backbone structure
+Getting started
+===
+The book on which I based the Backbone structure  
 http://addyosmani.github.io/backbone-fundamentals
 
-The passport integration was done with the help of this tutorial http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local
+The passport integration was done with the help of this tutorial  
+http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local
 
 Set-Up
 ===
