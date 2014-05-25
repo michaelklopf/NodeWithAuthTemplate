@@ -2,11 +2,12 @@
 
 // load models
 var Example     = require('../models/example');
+var mongoose    = require('mongoose');
 
 module.exports = function(app) {
 
     // methods to manipulate data
-    app.get('/examples', function(req, res) {
+    app.get('/examples', isLoggedIn, function(req, res) {
         return Example.find({user : req.user.local.email}, function(err, examples) {
             if(!err) {
                 return res.send(examples);
@@ -16,7 +17,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post('/examples', function(req, res) {
+    app.post('/examples', isLoggedIn, function(req, res) {
         var example = new Example({
             name: req.body.name,
             mail: req.body.mail,
@@ -32,8 +33,8 @@ module.exports = function(app) {
         return res.send(example);
     });
 
-    app.get('/examples/:id', function(req, res) {
-        return Example.findById(req.params.id, function(err, example) {
+    app.get('/examples/:id', isLoggedIn, function(req, res) {
+        return Example.find({_id : mongoose.Types.ObjectId(req.params.id), user : req.user.local.email}, function(err, example) {
             if(!err) {
                 return res.send(example);
             } else {
@@ -42,9 +43,9 @@ module.exports = function(app) {
         });
     });
 
-    app.put('/examples/:id', function(req, res) {
+    app.put('/examples/:id', isLoggedIn, function(req, res) {
         console.log('Updating example ' + req.body.name);
-        return Example.findById(req.params.id, function(err, example) {
+        return Example.find({_id : mongoose.Types.ObjectId(req.params.id), user : req.user.local.email}, function(err, example) {
             example.name = req.body.name;
             example.mail = req.body.mail;
 
@@ -59,9 +60,9 @@ module.exports = function(app) {
         });
     });
 
-    app.delete('/examples/:id', function(req, res) {
+    app.delete('/examples/:id', isLoggedIn, function(req, res) {
         console.log('Deleting example with id: ' + req.params.id);
-        return Example.findById(req.params.id, function(err, example) {
+        return Example.find({_id : mongoose.Types.ObjectId(req.params.id), user : req.user.local.email}, function(err, example) {
             return example.remove(function(err) {
                 if(!err) {
                     console.log('Example removed');
@@ -73,3 +74,10 @@ module.exports = function(app) {
         });
     });
 }
+
+var isLoggedIn = function(req, res, next) {
+  if (req.isAuthenticated())
+    return next();
+
+  res.redirect('/');
+};
