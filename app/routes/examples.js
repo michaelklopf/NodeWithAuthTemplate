@@ -7,7 +7,7 @@ module.exports = function(app) {
 
     // methods to manipulate data
     app.get('/examples', function(req, res) {
-        return Example.find(function(err, examples) {
+        return Example.find({user : req.user.local.email}, function(err, examples) {
             if(!err) {
                 return res.send(examples);
             } else {
@@ -19,13 +19,14 @@ module.exports = function(app) {
     app.post('/examples', function(req, res) {
         var example = new Example({
             name: req.body.name,
-            mail: req.body.mail
+            mail: req.body.mail,
+            user: req.user.local.email
         });
         example.save(function(err) {
             if (!err) {
                 return console.log('created');
             } else {
-                return consoel.log(err);
+                return console.log(err);
             }
         });
         return res.send(example);

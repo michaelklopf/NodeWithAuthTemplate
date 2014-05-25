@@ -234,4 +234,5 @@ mongod --dbpath ~/Dev/mongodbs
 # first install jade globally
 npm install jade --global
 
+# transform to html including the whitespaces
 jade --pretty index.jade

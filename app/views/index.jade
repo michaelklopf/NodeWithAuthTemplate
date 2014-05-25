@@ -41,6 +41,9 @@ html(lang="en")
                             li
                               if user
                                 a(href='/logout') Logout
+                            li
+                              if user
+                                a(href='/profile') You are logged in with #{user.local.email}.
 
             // Main content
             div.container
