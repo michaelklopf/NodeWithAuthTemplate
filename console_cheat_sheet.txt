@@ -236,3 +236,6 @@ npm install jade --global
 
 # transform to html including the whitespaces
 jade --pretty index.jade
+
+# get changes from remote
+git pull origin master

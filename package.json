@@ -13,7 +13,9 @@
   "keywords": [
     "template",
     "passport",
-    "nodejs"
+    "nodejs",
+    "expressjs",
+    "jade"
   ],
   "author": "Michael Klopf",
   "license": "BSD-2-Clause",
