@@ -34,7 +34,7 @@ module.exports = function(app) {
     });
 
     app.get('/examples/:id', isLoggedIn, function(req, res) {
-        return Example.find({_id : mongoose.Types.ObjectId(req.params.id), user : req.user.local.email}, function(err, example) {
+        return Example.findById({_id : mongoose.Types.ObjectId(req.params.id), user : req.user.local.email}, function(err, example) {
             if(!err) {
                 return res.send(example);
             } else {
@@ -45,7 +45,7 @@ module.exports = function(app) {
 
     app.put('/examples/:id', isLoggedIn, function(req, res) {
         console.log('Updating example ' + req.body.name);
-        return Example.find({_id : mongoose.Types.ObjectId(req.params.id), user : req.user.local.email}, function(err, example) {
+        return Example.findById({_id : mongoose.Types.ObjectId(req.params.id), user : req.user.local.email}, function(err, example) {
             example.name = req.body.name;
             example.mail = req.body.mail;
 
@@ -62,7 +62,7 @@ module.exports = function(app) {
 
     app.delete('/examples/:id', isLoggedIn, function(req, res) {
         console.log('Deleting example with id: ' + req.params.id);
-        return Example.find({_id : mongoose.Types.ObjectId(req.params.id), user : req.user.local.email}, function(err, example) {
+        return Example.findById({_id : mongoose.Types.ObjectId(req.params.id), user : req.user.local.email}, function(err, example) {
             return example.remove(function(err) {
                 if(!err) {
                     console.log('Example removed');
