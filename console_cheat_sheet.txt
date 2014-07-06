@@ -239,3 +239,15 @@ jade --pretty index.jade
 
 # get changes from remote
 git pull origin master
+
+# create bower.json, just like package.json before that install bower via npm globally
+bower init
+
+# install software as you do with npm
+bower install <library> --save
+
+# addition to WORKFLOW
+# create project as usual, create repo at github afterwards, add remote
+git remote add origin https://github.com/yourname/reponame.git
+# push to github
+git push -u origin master
