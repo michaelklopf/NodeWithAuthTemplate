@@ -11,6 +11,9 @@ var cookieParser  = require('cookie-parser');
 var bodyParser    = require('body-parser');
 var methodOverride = require('method-override');
 var session     = require('express-session');
+var env         = require('node-env-file');
+
+env(__dirname + '/.env');
 
 // load config and create database
 var database    = require('./config/database');
@@ -20,7 +23,6 @@ require('./config/passport.js')(passport);
 
 // create and configure express app
 var app = express();
-
 
 app.use(cookieParser('secretpassauth'));
 app.use(bodyParser());
