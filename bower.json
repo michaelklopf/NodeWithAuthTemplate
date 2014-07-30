@@ -1,0 +1,29 @@
+{
+  "name": "NodeWithAuth",
+  "version": "0.0.1",
+  "homepage": "https://github.com/michaelklopf/NodeWithAuthTemplate",
+  "authors": [
+    "Michael Klopf <klopf.michael@gmail.com>"
+  ],
+  "description": "Template project with authentification",
+  "main": "web.js",
+  "keywords": [
+    "Node.js",
+    "Passport",
+    "Template"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "backbone": "~1.1.2",
+    "marionette": "~2.1.0",
+    "bootstrap": "~3.2.0"
+  }
+}
